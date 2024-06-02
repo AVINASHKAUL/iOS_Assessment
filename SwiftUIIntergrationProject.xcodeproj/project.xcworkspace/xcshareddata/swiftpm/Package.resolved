@@ -1,4 +1,5 @@
 {
+  "originHash" : "26ae2899b68dd363d84fae96ebd608a6f9870033267369605e94b86126abcd7a",
   "pins" : [
     {
       "identity" : "cwlcatchexception",
@@ -55,15 +56,6 @@
       }
     },
     {
-      "identity" : "rxswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ReactiveX/RxSwift",
-      "state" : {
-        "revision" : "b06a8c8596e4c3e8e7788e08e720e3248563ce6a",
-        "version" : "6.7.1"
-      }
-    },
-    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",
@@ -109,5 +101,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

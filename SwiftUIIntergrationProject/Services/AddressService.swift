@@ -9,7 +9,6 @@ import Foundation
 import MapKit
 import ReactiveSwift
 import Combine
-import RxSwift
 
 /*
  Examples of services that will return a CLLocation object using frameworks like RXSwift, ReactiveSwift, Combine, or just a completion
@@ -22,7 +21,7 @@ struct AddressService {
   var coordinates: (String) -> SignalProducer<CLLocation?, SimpleError> = coordinates
   var asyncCoordinate: (String) async throws -> CLLocation? = asyncCoordinate
   var coordinatePublisher: (String) -> AnyPublisher<CLLocation?, SimpleError> = coordinatePub
-  var coordinateRX: (String) -> Observable<CLLocation?> = coordinateObservable
+  // var coordinateRX: (String) -> Observable<CLLocation?> = coordinateObservable
   var coordinatesCompletion: (String, ((CLLocation?, SimpleError?) -> Void)?) -> () = coordinatesComp
 }
 
@@ -47,20 +46,20 @@ extension AddressService {
     }
   }
   
-  static func coordinateObservable(from address: String) -> Observable<CLLocation?> {
-    return Observable.create { observer in
-      let geoCoder = CLGeocoder()
-      geoCoder.geocodeAddressString(address) { (placemarks, error) in
-        guard let placemarks = placemarks,
-              let location = placemarks.first?.location else {
-          observer.onError(SimpleError.address)
-          return
-        }
-        observer.onNext(location)
-      }
-      return Disposables.create()
-    }
-  }
+//  static func coordinateObservable(from address: String) -> Observable<CLLocation?> {
+//    return Observable.create { observer in
+//      let geoCoder = CLGeocoder()
+//      geoCoder.geocodeAddressString(address) { (placemarks, error) in
+//        guard let placemarks = placemarks,
+//              let location = placemarks.first?.location else {
+//          observer.onError(SimpleError.address)
+//          return
+//        }
+//        observer.onNext(location)
+//      }
+//      return Disposables.create()
+//    }
+//  }
   
   static func asyncCoordinate(from address: String) async throws -> CLLocation? {
     let geocoder = CLGeocoder()

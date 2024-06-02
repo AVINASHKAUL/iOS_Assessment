@@ -12,7 +12,7 @@ public struct Environment {
   var scheduler: ReactiveSwift.Scheduler = QueueScheduler(qos: .userInitiated, name: "userInitiated")
   var backgroundScheduler: DateScheduler = QueueScheduler(qos: .background, name: "background")
   var runLoop: RunLoop = .main
-  var weatherServiceReactive: WeatherService = .live
+  var weatherServiceReactive: WeatherService = WeatherServiceImpl()
   var addressService: AddressService = .live
 }
 
