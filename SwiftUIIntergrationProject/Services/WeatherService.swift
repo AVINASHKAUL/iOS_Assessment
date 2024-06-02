@@ -16,7 +16,7 @@ struct WeatherServiceImpl: WeatherService {
 //  var retrieveCurrentWeather: (CLLocation) -> DataPublisher<CurrentWeatherJSONData?>
     
     func retrieveWeatherForecast(location: CLLocation) -> DataPublisher<ForecastJSONData?> {
-        guard let url = currentWeatherURL(location: location) else {
+        guard let url = forecastURL(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) else {
             return Fail(error: SimpleError.invalidUrl).eraseToAnyPublisher()
         }
         return URLSession.shared.dataTaskPublisher(for: url)

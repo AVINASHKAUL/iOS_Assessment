@@ -69,11 +69,15 @@ class UIKitController: UIViewController {
         }.store(in: &cancelBag)
     }
 
-    @MainActor
     func render(viewData: UIKitViewModel.ViewData) {
-        addressPrimary.text = viewData.selectedAddress.name
-        secondary.text = viewData.selectedAddress.secondary
-        currentTemp.text = viewData.selectedAddress.currentTemperature
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            addressPrimary.text = viewData.selectedAddress.name
+            secondary.text = viewData.selectedAddress.secondary
+            currentTemp.text = viewData.selectedAddress.currentTemperature
+            weatherListView.reloadData()
+        }
+        
     }
     
     // MARK: Header view
@@ -157,12 +161,16 @@ extension UIKitController:  UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20 // Example number of rows
+        return self.viewModel.viewData.weathers?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = "Row \(indexPath.row + 1)"
+        if let weather = self.viewModel.viewData.weathers?[indexPath.row] {
+            cell.textLabel?.text = weather.temprature
+            return cell
+        }
+        cell.textLabel?.text = "Row"
         return cell
     }
     
