@@ -120,7 +120,7 @@ class UIKitViewModel {
         guard let data = data else { return }
         var weatherList = [WeatherListItemViewdata]()
         for item in data.list {
-            var weatherListItem = WeatherListItemViewdata(date: item.displayDate, time: "", secondary: item.rain != nil ? "Light Rain" : "No Rain"  , temprature: "Temprature: \(item.temperatures.temp)F")
+            var weatherListItem = WeatherListItemViewdata(date: item.displayDate, time: item.displayDate, secondary: item.rain != nil ? "Light Rain" : "No Rain"  , temprature: "Temprature: \(item.temperatures.temp)F")
             weatherList.append(weatherListItem)
         }
         self.viewData.weathers = weatherList

@@ -112,7 +112,7 @@ class UIKitController: UIViewController {
         curntWeatherVerticalStackView.axis = .vertical
         curntWeatherVerticalStackView.distribution = .fillEqually
         curntWeatherVerticalStackView.alignment = .fill
-        curntWeatherVerticalStackView.spacing = 10
+        curntWeatherVerticalStackView.spacing = 6
 
         // Add sample labels to the vertical stack view
         curntWeatherVerticalStackView.addArrangedSubview(addressPrimary)
@@ -134,6 +134,7 @@ class UIKitController: UIViewController {
 
     
     func setupConstraints() {
+        // AVINASH_TODO: Revist this before sending height constraint
         NSLayoutConstraint.activate([
             // Horizontal Stack View constraints
             addressesHorizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -145,10 +146,9 @@ class UIKitController: UIViewController {
             curntWeatherVerticalStackView.topAnchor.constraint(equalTo: addressesHorizontalStackView.bottomAnchor, constant: 10),
             curntWeatherVerticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             curntWeatherVerticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            curntWeatherVerticalStackView.heightAnchor.constraint(equalToConstant: 150),
 
             // Table View constraints
-            weatherListView.topAnchor.constraint(equalTo: curntWeatherVerticalStackView.bottomAnchor, constant: 10),
+            weatherListView.topAnchor.constraint(equalTo: curntWeatherVerticalStackView.bottomAnchor, constant: 3),
             weatherListView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             weatherListView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             weatherListView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -165,9 +165,43 @@ extension UIKitController:  UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         if let weather = self.viewModel.viewData.weathers?[indexPath.row] {
-            cell.textLabel?.text = weather.temprature
+            // AVINASH_TODO: Move the cell to it's own Subclass of UITableViewCell
+            let verticalStackView = UIStackView()
+            verticalStackView.axis = .vertical
+            verticalStackView.distribution = .fill
+            verticalStackView.alignment = .leading
+            verticalStackView.spacing = 4
+            verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+            
+            let dateLabel = UILabel()
+            dateLabel.text = weather.date
+            dateLabel.font = UIFont.systemFont(ofSize: 16)
+                    
+            let rainLabel = UILabel()
+            rainLabel.text = "LightRain"
+            rainLabel.font = UIFont.systemFont(ofSize: 14)
+            
+            let tempratureLabel = UILabel()
+            tempratureLabel.text = weather.temprature
+            tempratureLabel.font = UIFont.systemFont(ofSize: 14)
+            
+            verticalStackView.addArrangedSubview(dateLabel)
+            verticalStackView.addArrangedSubview(rainLabel)
+            verticalStackView.addArrangedSubview(tempratureLabel)
+            
+            cell.contentView.addSubview(verticalStackView)
+            
+            NSLayoutConstraint.activate([
+                        verticalStackView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 15),
+                        verticalStackView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -15),
+                        verticalStackView.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10),
+                        verticalStackView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10)
+                    ])
+    
+            
+            
             return cell
         }
         cell.textLabel?.text = "Row"
