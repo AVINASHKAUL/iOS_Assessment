@@ -11,6 +11,7 @@
 		1F54D8792C0C908A0033438C /* UIKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F54D8782C0C908A0033438C /* UIKitViewModel.swift */; };
 		1F6D1D582C0DA390007B2CC4 /* UIKitViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D1D572C0DA390007B2CC4 /* UIKitViewModelTests.swift */; };
 		1F6D1D5A2C0DC270007B2CC4 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D1D592C0DC270007B2CC4 /* WeatherServiceMock.swift */; };
+		1F6D1D5C2C0DCD84007B2CC4 /* UIKitViewControllerScenarioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D1D5B2C0DCD84007B2CC4 /* UIKitViewControllerScenarioTest.swift */; };
 		9B0033422BFED3CF0057F235 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0033412BFED3CF0057F235 /* SimpleError.swift */; };
 		9B1FE3652BC0A09200F0A259 /* SampleAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3642BC0A09200F0A259 /* SampleAddresses.swift */; };
 		9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */; };
@@ -76,6 +77,7 @@
 		1F54D8782C0C908A0033438C /* UIKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewModel.swift; sourceTree = "<group>"; };
 		1F6D1D572C0DA390007B2CC4 /* UIKitViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewModelTests.swift; sourceTree = "<group>"; };
 		1F6D1D592C0DC270007B2CC4 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
+		1F6D1D5B2C0DCD84007B2CC4 /* UIKitViewControllerScenarioTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewControllerScenarioTest.swift; sourceTree = "<group>"; };
 		9B0033412BFED3CF0057F235 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
 		9B1FE3642BC0A09200F0A259 /* SampleAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAddresses.swift; sourceTree = "<group>"; };
 		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -269,6 +271,7 @@
 			children = (
 				9BBD8D162BBC561000A5F295 /* SwiftUIIntergrationProjectUITests.swift */,
 				9BBD8D182BBC561000A5F295 /* SwiftUIIntergrationProjectUITestsLaunchTests.swift */,
+				1F6D1D5B2C0DCD84007B2CC4 /* UIKitViewControllerScenarioTest.swift */,
 			);
 			path = SwiftUIIntergrationProjectUITests;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6D1D5C2C0DCD84007B2CC4 /* UIKitViewControllerScenarioTest.swift in Sources */,
 				9BBD8D192BBC561000A5F295 /* SwiftUIIntergrationProjectUITestsLaunchTests.swift in Sources */,
 				9BBD8D172BBC561000A5F295 /* SwiftUIIntergrationProjectUITests.swift in Sources */,
 			);

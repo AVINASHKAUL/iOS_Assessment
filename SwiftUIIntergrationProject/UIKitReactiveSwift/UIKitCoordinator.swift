@@ -12,9 +12,9 @@ import UIKit
 
 class UIKitCoordinator {
     
-    let navigationController: UINavigationController
+    let navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
@@ -24,6 +24,12 @@ class UIKitCoordinator {
         
         let viewController = UIKitController(viewModel: viewModel)
         
-        self.navigationController.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    var presentableViewController: UIViewController {
+        let viewModel = UIKitViewModel(weatherService: Environment.current.weatherServiceReactive, addressService: Environment.current.addressService)
+        
+        return UIKitController(viewModel: viewModel)
     }
 }

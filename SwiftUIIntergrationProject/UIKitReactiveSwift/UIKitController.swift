@@ -17,12 +17,22 @@ class UIKitController: UIViewController {
 
     
     // Define the UI components
-    let addressesHorizontalStackView = UIStackView()
+    let addressesHorizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.accessibilityValue = "addressesHorizontalStackView"
+        return stackView
+    }()
     
-    let curntWeatherVerticalStackView = UIStackView()
+    let curntWeatherVerticalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.accessibilityValue = "curntWeatherVerticalStackView"
+        return stackView
+    }()
+    
     var addressPrimary: UILabel = {
         let label = UILabel()
         label.text = "Current Select Primary Address"
+        label.accessibilityValue = "primaryAddressLabel"
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -31,18 +41,24 @@ class UIKitController: UIViewController {
         let label = UILabel()
         label.text = "Current secondary info"
         label.textAlignment = .center
+        label.accessibilityValue = "secondaryLabel"
         label.numberOfLines = 0
         return label
     }()
+    
     var currentTemp: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.accessibilityValue = "currentTemperatureLabel"
         label.text = "Current temprature"
         return label
     }()
     
-    let weatherListView = UITableView()
-
+    let weatherListView: UITableView = {
+        let tableView = UITableView()
+        tableView.accessibilityValue = "weatherListView"
+        return tableView
+    }()
     // AVINASH_TODO: Move to Coordinator
     let viewModel: UIKitViewModel
     var cancelBag = Set<AnyCancellable>()
