@@ -8,7 +8,13 @@
 import Foundation
 
 public enum SimpleError: Error, Equatable {
-  case address
-  case dataLoad(String)
-  case dataParse(String?)
+    
+    case address
+    case dataLoad(String)
+    case dataParse(String?)
+    
+    case invalidUrl
+    case requestFailed
+    case invalidResponse
+    case decodingFailed
 }

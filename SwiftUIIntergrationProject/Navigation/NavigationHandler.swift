@@ -19,8 +19,10 @@ extension UIViewController {
   }
   
   private func navigateUIKitView() {
-    let controller = UIKitController()
-    navigationController?.pushViewController(controller, animated: true)
+      if let navigationController = self.navigationController {
+          let coordinator = UIKitCoordinator(navigationController: navigationController)
+          coordinator.start()
+      }
   }
   
   private func navigateSwiftUIView() {

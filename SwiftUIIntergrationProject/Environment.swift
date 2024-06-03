@@ -12,8 +12,10 @@ public struct Environment {
   var scheduler: ReactiveSwift.Scheduler = QueueScheduler(qos: .userInitiated, name: "userInitiated")
   var backgroundScheduler: DateScheduler = QueueScheduler(qos: .background, name: "background")
   var runLoop: RunLoop = .main
-  var weatherServiceReactive: WeatherService = .live
-  var addressService: AddressService = .live
+    
+// AVINASH_TODO: Should replace this with a DI Container
+  var weatherServiceReactive: WeatherService = WeatherServiceImpl()
+  var addressService: AddressService = AddressServiceImpl()
 }
 
 public extension Environment {
