@@ -4,7 +4,7 @@ import MapKit
 
   // TODO: Fill in this to retrieve current weather, and 5 day forecast by passing in a CLLocation
   ///ForecastJSONData and CurrentWeatherJSONData are the data types returned from Open Weather Service
- // AVINASH_TODO: add a protocol, and let's make a DI Container for this
+ // AVINASH_TODO: let's make a DI Container for this
 protocol WeatherService {
     func retrieveWeatherForecast(location: CLLocation) -> DataPublisher<ForecastJSONData?>
     func retrieveCurrentWeather(location: CLLocation) -> DataPublisher<CurrentWeatherJSONData?>
@@ -61,6 +61,3 @@ struct WeatherServiceImpl: WeatherService {
     
 }
 
-//extension WeatherService {
-//  static var live = WeatherServiceImpl()
-//}

@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F53C3672C0CE81D0033F0A3 /* UIKitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F53C3662C0CE81D0033F0A3 /* UIKitCoordinator.swift */; };
 		1F54D8792C0C908A0033438C /* UIKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F54D8782C0C908A0033438C /* UIKitViewModel.swift */; };
+		1F6D1D582C0DA390007B2CC4 /* UIKitViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D1D572C0DA390007B2CC4 /* UIKitViewModelTests.swift */; };
+		1F6D1D5A2C0DC270007B2CC4 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D1D592C0DC270007B2CC4 /* WeatherServiceMock.swift */; };
 		9B0033422BFED3CF0057F235 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0033412BFED3CF0057F235 /* SimpleError.swift */; };
 		9B1FE3652BC0A09200F0A259 /* SampleAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3642BC0A09200F0A259 /* SampleAddresses.swift */; };
 		9B1FE3672BC0A0FD00F0A259 /* AddressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */; };
@@ -69,7 +72,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F53C3662C0CE81D0033F0A3 /* UIKitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitCoordinator.swift; sourceTree = "<group>"; };
 		1F54D8782C0C908A0033438C /* UIKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewModel.swift; sourceTree = "<group>"; };
+		1F6D1D572C0DA390007B2CC4 /* UIKitViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewModelTests.swift; sourceTree = "<group>"; };
+		1F6D1D592C0DC270007B2CC4 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
 		9B0033412BFED3CF0057F235 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
 		9B1FE3642BC0A09200F0A259 /* SampleAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAddresses.swift; sourceTree = "<group>"; };
 		9B1FE3662BC0A0FD00F0A259 /* AddressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressService.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -253,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				9BBD8D0C2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift */,
+				1F6D1D572C0DA390007B2CC4 /* UIKitViewModelTests.swift */,
 			);
 			path = SwiftUIIntergrationProjectTests;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 			children = (
 				9BD0A9012BC08ADA00953018 /* UIKitController.swift */,
 				1F54D8782C0C908A0033438C /* UIKitViewModel.swift */,
+				1F53C3662C0CE81D0033F0A3 /* UIKitCoordinator.swift */,
 			);
 			path = UIKitReactiveSwift;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				9BAA25782BC7815F00AA42B3 /* AddressServiceMock.swift */,
 				9B1FE3AB2BC6F49600F0A259 /* WeatherService.swift */,
 				9B1FE3AD2BC6F4B000F0A259 /* WeatherServiceURL.swift */,
+				1F6D1D592C0DC270007B2CC4 /* WeatherServiceMock.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -475,6 +484,7 @@
 			files = (
 				9BD0A9022BC08ADA00953018 /* UIKitController.swift in Sources */,
 				9B1FE3742BC49BAE00F0A259 /* CurrentWeatherJSONData.swift in Sources */,
+				1F6D1D5A2C0DC270007B2CC4 /* WeatherServiceMock.swift in Sources */,
 				9B7651D12BEF1C5A009CCC56 /* Double+Extensions.swift in Sources */,
 				9B1FE3952BC5DC2800F0A259 /* ForecastJSONDataMock.swift in Sources */,
 				9B98F4742BCEDB57008B5876 /* HostControllerDelegate.swift in Sources */,
@@ -490,6 +500,7 @@
 				9B1FE38E2BC5D63200F0A259 /* SwiftUIController.swift in Sources */,
 				9B1FE3702BC4996C00F0A259 /* Functions.swift in Sources */,
 				9B1FE3932BC5DAB700F0A259 /* CurrentWeatherJSONDataMock.swift in Sources */,
+				1F53C3672C0CE81D0033F0A3 /* UIKitCoordinator.swift in Sources */,
 				9B1FE3762BC49BD000F0A259 /* WeatherJSONData.swift in Sources */,
 				9BBD8CF82BBC560F00A5F295 /* SceneDelegate.swift in Sources */,
 				9B1FE3692BC0EE0500F0A259 /* ForecastJSONData.swift in Sources */,
@@ -510,6 +521,7 @@
 				9B1FE3A92BC63F0300F0A259 /* EnvironmentMock.swift in Sources */,
 				9BBD8D0D2BBC561000A5F295 /* SwiftUIIntergrationProjectTests.swift in Sources */,
 				9BAA25772BC77D6B00AA42B3 /* TestObserver.swift in Sources */,
+				1F6D1D582C0DA390007B2CC4 /* UIKitViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

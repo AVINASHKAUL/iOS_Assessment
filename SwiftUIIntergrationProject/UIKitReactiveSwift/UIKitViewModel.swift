@@ -11,8 +11,9 @@ import CoreLocation
 
 class UIKitViewModel {
     
+    // AVINASH_TODO : Change this to something better for empty state, and try remove hardcoded addresses
     @Published
-    private (set) var viewData: ViewData = ViewData(addresses: ["201012", "180013", "180001"], selectedAddress: (name: "Address 1", secondary: "Cloudy weather", currentTemperature: "Current Temprature: 72F"), weathers: [])
+    private (set) var viewData: ViewData = ViewData(addresses: ["201012", "180013", "180001"], selectedAddress: (name: "201012", secondary: "Cloudy weather", currentTemperature: "Current Temprature: 72F"), weathers: [])
     
     // MARK: All the services consumed by viewModel
     private let weatherSerivce: WeatherService
@@ -50,7 +51,7 @@ class UIKitViewModel {
     
     // AVINASH_TODO: need to replace the location with something else e.g CLLocation
     private func onAddressSelect(address: String) {
-        AddressService.coordinatePub(from: address).sink { completion in
+        addressService.coordinatePub(from: address).sink { completion in
             switch completion {
                 case .finished:
                     print("Finished")
@@ -108,7 +109,7 @@ class UIKitViewModel {
     
     // AVINASH_TODO: For performance we might want to following operations together, we should handle emppty state
     
-    func updateCurrentWeatherViewData(data: CurrentWeatherJSONData?){
+    private func updateCurrentWeatherViewData(data: CurrentWeatherJSONData?){
         guard let data = data else { return }
         viewData.selectedAddress.name = data.name
         // viewData.selectedAddress.secondary = data.main.
@@ -116,7 +117,7 @@ class UIKitViewModel {
         
     }
     
-    func updateForeCastWeatherViewData(data: ForecastJSONData?) {
+    private func updateForeCastWeatherViewData(data: ForecastJSONData?) {
         guard let data = data else { return }
         var weatherList = [WeatherListItemViewdata]()
         for item in data.list {

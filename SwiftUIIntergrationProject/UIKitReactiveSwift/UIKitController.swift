@@ -44,8 +44,18 @@ class UIKitController: UIViewController {
     let weatherListView = UITableView()
 
     // AVINASH_TODO: Move to Coordinator
-    let viewModel = UIKitViewModel(weatherService: Environment.current.weatherServiceReactive, addressService: Environment.current.addressService)
+    let viewModel: UIKitViewModel
     var cancelBag = Set<AnyCancellable>()
+    
+    init( viewModel: UIKitViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +77,8 @@ class UIKitController: UIViewController {
             guard let self else { return }
             self.render(viewData: viewData)
         }.store(in: &cancelBag)
+        
+        viewModel.onSelectAddress(name: viewModel.viewData.selectedAddress.name)
     }
 
     func render(viewData: UIKitViewModel.ViewData) {
@@ -97,7 +109,6 @@ class UIKitController: UIViewController {
             button.backgroundColor = .systemBlue
             button.addAction(UIAction(handler: { [weak self] _ in
                 guard let self else {return}
-                // AVINASH_TODO: Weakify this
                 self.viewModel.onSelectAddress(name: button.currentTitle ?? "Default")
                     }), for: .touchUpInside)
             addressesHorizontalStackView.addArrangedSubview(button)
@@ -134,7 +145,6 @@ class UIKitController: UIViewController {
 
     
     func setupConstraints() {
-        // AVINASH_TODO: Revist this before sending height constraint
         NSLayoutConstraint.activate([
             // Horizontal Stack View constraints
             addressesHorizontalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -208,5 +218,8 @@ extension UIKitController:  UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // AVINASH_TODO: On click of row open the detail modal for it.
+    }
 }
 
